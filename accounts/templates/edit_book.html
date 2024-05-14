@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+
+<center>
+    <h2>Which Book U want to edit for...</h2>
+    <div class="container" style="padding-left:100px ;">
+        <form method="post">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="search" class="form-control" placeholder="   Search" name="searched" style="opacity: 0.5555;">
+            <button type="submit" class="btn btn-secondary">
+                Find
+            </button>
+          </div>
+        </form>
+    </div>
+</center>
+<br>
+   {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-primary" role="alert">{{ message }}</div>
+        {% endfor %}
+   {% endif %}
+    {% if searched %}
+          {% for book in books %}
+                <a href="/edit_book/edit_book1/{{book.isbn}}/" style="text-decoration: none;">
+                  <p  style="padding: 50px; display: inline-block;"> {{book.name}}-{{book.isbn}} </p>
+                </a>
+          {% endfor %}  
+    {% endif %}     
+
+
+{% endblock %}

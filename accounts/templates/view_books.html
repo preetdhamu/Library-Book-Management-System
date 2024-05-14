@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+
+
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Book Cover</th>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">ISBN Number</th>
+        <th scope="col">Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in book %}
+      <tr>
+          <td scope="col">{{forloop.counter}}.</td>
+          <td scope="col"><img src="{{ i.cover.url }}" alt="{{ book.title }}" style="width:70px; height: 70px;"></td>
+          <td scope="col">{{i.name}}</td>
+          <td scope="col">{{i.author}}</td>
+          <td scope="col">{{i.isbn}}</td>
+          <td scope="col">{{i.category}}</td>
+          <td><a href="/delete_books/{{i.id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this book?')">Delete</a></td>
+          </tr>
+      {% endfor %}
+  </tbody>
+  </table>
+{% endblock %}

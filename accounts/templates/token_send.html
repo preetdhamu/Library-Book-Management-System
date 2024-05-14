@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="global-container">
+	<div class="card login-form">
+	<div class="card-body">
+		<div class="alert alert-primary" role="alert">We have send a Mail to you </div>
+		<h3 class="card-title text-center">Please check your Mail</h3>
+		<div class="card-text text-center">
+		<div class="sign-up ">
+			 <a href="{%url 'login_attempt'%}">
+			 <button type="submit" class="btn btn-primary btn-block">Log in</button>
+			</a>
+		</div>    
+			
+		</div>
+	</div>
+</div>
+</div>
+
+
+{% endblock %}

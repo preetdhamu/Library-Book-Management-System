@@ -1,0 +1,33 @@
+{% extends "hom1.html" %}
+
+{% block content %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Book Name</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Issued Date</th>
+        <th scope="col">Expiry Date</th>
+        <th scope="col">Fine</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in details %}
+      <tr>
+        
+        <!-- t=(books[0].name,books[0].isbn,i.issued_date,i.expiry_date,fine) -->
+          <td scope="col">{{forloop.counter}}.</td>
+          <td scope="col">{{i.0}}</td>
+          <td scope="col">{{i.1}}</td>
+          <td scope="col">{{i.2}}</td>
+          <td scope="col">{{i.3}}</td>
+          <td scope="col">{{i.4}}</td>
+          {% if i.4%}
+          <td><a href="simple_checkout/" class="btn btn-outline-danger"> Pay Fine</a></td>
+          {% endif %}
+      </tr>
+      {% endfor %}
+  </tbody>
+  </table>
+{% endblock %}

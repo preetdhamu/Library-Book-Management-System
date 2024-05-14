@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Home Page</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png'%}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+
+  
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>  
+  <!-- Vendor CSS Files -->
+  <!-- <link href="{% static 'assets/vendor/aos/aos.css'%} rel="stylesheet"> -->
+  <!-- <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%} rel=" stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%} rel=" stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%} rel=" stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%} rel=" stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css'%} rel=" stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%} rel=" stylesheet"> -->
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"  
+     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"> 
+  <style>
+    #container1{
+      width:500px; 
+      border:2px solid grey; 
+      padding: 10px; 
+      margin: 50px;
+      border-radius: 20px;
+      display: inline-block;
+      background-color:#f3f5fa;
+      box-shadow:2px 2px 20px  rgba(40, 58, 90, 0.9) ;
+    }
+    #image{
+      
+      border-radius: 2rem;
+      box-shadow: 2px 2px 10px #f3f5fa;
+      
+    }
+    .maincontainer{
+      display: grid;
+      grid-template-columns: 2fr 2fr;
+      grid-gap: 0px;
+    }
+    .container2 , .container3{ 
+      display: inline-block;
+      padding-top: 80px;
+      padding-left: 70px;
+    }
+    #welcome{
+      font-family: 'Bruno Ace SC', cursive;
+      color: #f3f5fa;
+      padding-top: 100px;
+      padding-left: 70px;
+      font-weight: bold;
+    }
+    pre{
+      font-family: 'Bruno Ace SC', cursive;
+      font-size: 15px;
+    }
+    pre:hover{
+      color: beige;
+    }
+  
+  </style>  
+
+</head>
+
+<body>
+
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo me-auto"><a href="#about" style="text-decoration: none;">LIBRARY</a></h1>
+      <nav id="navbar" class="navbar">
+        <ul style="margin-left: 248px;">
+          <li><a href="/home1">Home</a></li>
+          <li><a href="#about">About</a></li>
+
+          <li class="dropdown"><a href="#"><span>Issue Book</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/subscriber_issued_books">View Issued Book</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Book</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/subscribe_view_book">View Book</a></li>
+              <li><a href="/return_book">Return A Book</a></li>
+              
+            </ul>
+          </li>
+          
+          <li><a class="nav-link scrollto" href="/SListChat">Messages</a></li>
+          <li><a class="getstarted scrollto" href="/SCreateChat">Chat</a></li>
+          <a href="/logout">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+              <path fill-rule="evenodd"
+                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+            </svg>
+          </a>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      
+      <div class="container" style="padding-left:100px ;">
+        <form method="post">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="search" class="form-control" placeholder="   Search" name="searched" style="opacity: 0.5555;">
+            <button type="submit" class="btn btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="d-flex align-items-center">
+    <div class="maincontainer">
+      <div class="container3">
+         <img id="image" src="https://c4.wallpaperflare.com/wallpaper/479/101/113/germany-saxony-gorlitz-hall-historical-literature-wallpaper-preview.jpg" alt="">
+        </div>
+      <div class="container2">
+        <h3 id="welcome">"The only thing <br>that you absolutely <br> have to know,<br> is the location of <br>the library," <br><br><pre>- Albert Einstein.</pre></h3>
+      </div>
+    </div>  
+      </section>
+  <main id="main">
+    <section class="inner-page">
+      <div class="container">
+        {% if searched %}
+        <div class="alert alert-primary" role="alert">{{ searched}}</div>
+          {% for book in books %}
+               <div id="container1">
+                <center>
+                {% if book.cover %}
+                <img src="{{ book.cover.url }}" alt="{{ book.title }}" style="width:210px; height: 320px; border-radius: 20px;">
+                {% else %}
+                <span class="text-muted">No cover</span>
+                {% endif %}
+                <a href="/book_view/{{book.isbn}}" style="text-decoration: none;">
+                <br>
+                <br>
+                </center>
+                <pre  style="padding-left: 100px; "> {{book.name}}-{{book.isbn}} </pre>
+                </a>
+               </div> 
+          {% endfor %}      
+        {% endif %}
+
+        {% block content %}
+
+        {% endblock %}
+      </div>
+    </section>
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p id="abt">
+              Libraries are one of the few places in the world that give even the worst-off people a chance to improve themselves. There are a lot of activities that you can do there. People can learn about depression, alcoholism, personal finances, how to find a job, fix their house.
+            </p>
+            <p id="abt1" style="display: none;"> It isn't easy, and you still have to work hard. You have to know English, and you have to spend many hours at it. You can make use of different newspapers and employment news to find a job for you, different books to study and a lot more is there in the library for everyone. Library offers a door for one and all, of every age group. Libraries offer free education and entertainment to the masses. It doesn't matter what your economic status is, you can come in and have free access to books that can inform and transform you. I hope libraries will always be around in some form or other.    </p>
+            <a id="abtn" class="btn-learn-more">Learn More</a>
+          </div>
+          <div class="col-lg-6">
+            <p>
+              We also help ensure an authentic record of knowledge created and accumulated by past generations. In a world without libraries, it would be difficult to advance research and human knowledge or preserve the world's cumulative knowledge and heritage for future generations.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <img width="120"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhct9ZGpOhO9eT4OeiCWgqTVxQbFg-obj3_w&usqp=CAU"
+              alt="Book">
+            <br><br>
+            <h4>Book Library</h4>
+            <p>"A word after a word after a word is power."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>{{request.user.username}}</h3>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong>  +919784893883<br>
+              <strong>Email:</strong> gurpreetdhamu8586@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/home1">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+              </svg></a>
+              <a href="#" class="facebook"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+              </svg></a>
+              <a href="#" class="instagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+              </svg></a>
+              <a href="#" class="google-plus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+              </svg></a>
+              <a href="#" class="linkedin"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Preet</span></strong>. All Rights Reserved
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+  </svg></a>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js'%}"></script>
+    <script>
+        $('document').ready(function(){
+           $('#abtn').click(function(){
+              $('#abt').siblings("#abt1").toggle();
+            }
+            );
+        })
+    </script>
+
+</body>
+
+</html>
+
+
+

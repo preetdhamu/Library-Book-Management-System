@@ -1,0 +1,30 @@
+{% extends "hom1.html" %}
+
+
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Book Cover</th>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">ISBN Number</th>
+        <th scope="col">Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in book %}
+      <tr>
+          <td scope="col">{{forloop.counter}}.</td>
+          <td scope="col"><img src="{{ i.cover.url }}" alt="{{ book.title }}" style="width:70px; height: 70px;"></td>
+          <td scope="col">{{i.name}}</td>
+          <td scope="col">{{i.author}}</td>
+          <td scope="col">{{i.isbn}}</td>
+          <td scope="col">{{i.category}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <i><a href="/UCreateChat" style="color:red;  text-decoration: none;">* If u want to get a Book u need to send Your username with Detail of Book</a></i>
+{% endblock %}

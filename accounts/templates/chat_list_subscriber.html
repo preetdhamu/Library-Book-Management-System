@@ -1,0 +1,22 @@
+{% extends "hom1.html" %}
+
+{% block content %}
+    
+        {% for chat in object_list %}
+    
+    
+            <div class="chat" style="width: 50%; margin: auto; background: white; box-shadow: 2px 0px 25px 20px rgba(40, 58, 90, 0.9);">
+                {% if  not chat.user.is_verified %}
+                <small class="chat-user-special text-danger"> {{ chat.user }} </small>    
+                {% endif %}
+                
+                <p><b class="chat-content" style="text-align: center;">{{ chat|linebreaks }}</b></p>
+                <small class="chat-date">{{ chat.posted_at }}</small>
+            </div><br><br><br>
+        {% endfor %}
+        <!----> 
+    
+        <div class="col-sm-4"></div>
+
+
+{% endblock %}

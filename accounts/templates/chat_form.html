@@ -1,0 +1,38 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+
+<style>
+    #id_message{
+        height: 4em;
+        width: 50em;
+        
+    }
+    .welcome1{
+      font-family: 'Bruno Ace SC', cursive;
+      color:#37517e;
+      padding-top: 100px;
+      padding-left: 70px;
+      font-weight: bold;
+    }
+</style>
+
+<div class="card-header text-primary">
+<h3 class="welcome1">Welcome To the BookApp Group Chat</h3>
+<br>
+<br>
+</div>
+<div class="myform">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <input type="submit"  class="btn btn-outline-primary mt-4"  name="sub" value="Send" style="float: right; margin-right: 200px;">
+    </form>
+</div>
+
+
+
+
+{% endblock %}

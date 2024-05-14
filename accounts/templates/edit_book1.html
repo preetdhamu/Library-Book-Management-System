@@ -1,0 +1,34 @@
+{% extends "home.html" %}
+
+{% block content %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-primary" role="alert">{{ message}}</div>
+                {% endfor %}
+                {% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="bookname" class="form-label">Book Name</label>
+      <input type="text" class="form-control" id="bookname" name="bookname" value="{{books.name}}">
+    </div>
+    <div class="mb-3">
+        <label for="authorname" class="form-label">Author Name</label>
+        <input type="text" class="form-control" id="authorname" name="authorname" value="{{books.author}}">
+    </div>
+    <div class="mb-3">
+        <label for="isbnnumber" class="form-label">ISBN Number</label>
+        <input type="number" class="form-control" id="isbnnumber" name="isbnnumber" value="{{books.isbn}}">
+    </div>  
+    <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input type="text" class="form-control" id="category" name="category" value="{{books.category}}">
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Cover</label>
+      <input type="file" class="form-control" id="cover" name="cover">
+  </div>
+  <button pe="submit" class="btn btn-primary">Update Book</button>
+</form>
+
+{% endblock %}

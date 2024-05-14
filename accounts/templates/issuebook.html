@@ -1,0 +1,24 @@
+{% extends "home.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-primary" role="alert">{{ message}}</div>
+  {% endfor %}
+  {% endif %}
+  <form method="POST"> 
+    {% csrf_token %}
+    {% for i in form %}
+    <div class="form-group">
+      <br>
+      <label class="control-label col-xs-4">{{ i.label_tag }}</label>
+      <div class="col-xs-8 mt-2">
+        {{ i }}
+      </div>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-outline-primary mt-4">Issue Book</button>
+</div>
+</form>
+{% endblock %}

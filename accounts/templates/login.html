@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="global-container">
+	<div class="card login-form">
+		<div class="card-body">
+			<h3 class="card-title text-center">WELCOME E-library</h3>
+			<div class="card-text">
+				{% if messages %}
+				{% for message in messages %}
+				<div class="alert alert-primary" role="alert">{{ message}}</div>
+			    {% endfor %}
+		        {% endif %}  
+			<!--
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+			<form method="post">
+				{% csrf_token %}
+				<!-- to error: add class "has-danger" -->
+				<div class="form-group">
+					
+					<input type="text" name="username" class="form-control form-control-sm" id="exampleInputtext1" placeholder="😊 Username">
+				</div>
+				<br>
+				<div class="form-group">
+					
+					<input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="🔒 Password">
+					<a href="/forget" style="float:right;font-size:12px;">Forgot password?</a>
+				</div>
+				<br>
+				<div id="captcha" name="g-recaptcha" >
+					{{a}}
+                </div>   
+				<br>
+				<div class="text-center">
+				<button type="submit" class="btn btn-primary btn-block ">Sign in</button>
+				</div>
+				<div class="sign-up">
+					Don't have an account? <a href="/register">Register</a>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}
+
+<!-- https://codepen.io/tag/login -->

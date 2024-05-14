@@ -1,0 +1,57 @@
+{% extends "hom1.html" %}
+
+{% block content %}
+
+
+<div class="container mt-4">
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-primary" role="alert">{{ message}}</div>
+  {% endfor %}
+  {% endif %}
+  <form method="POST"> 
+    {% csrf_token %}
+    {% for i in form %}
+    <div class="form-group">
+      <br>
+      <label class="control-label col-xs-4">{{ i.label_tag }}</label>
+      <div class="col-xs-8 mt-2">
+        {{ i }}
+      </div>
+    </div>
+    {% endfor %}
+    <button class="btn btn-outline-primary mt-4">Return Book</button>
+     <div class="container mt-4">
+
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Book Name</th>
+          <th scope="col">ISBN</th>
+          <th scope="col">Issued Date</th>
+          <th scope="col">Expiry Date</th>
+          <th scope="col">Fine</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- t=(books[0].name,books[0].isbn,i.issued_date,i.expiry_date,fine) -->
+            <td scope="col">{{list.0}}</td>
+            <td scope="col">{{list.1}}</td>
+            <td scope="col">{{list.2}}</td>
+            <td scope="col">{{list.3}}</td>
+            <td scope="col">{{list.4}}</td>
+            {% if not list.4 %}
+            <td><a href="/confirm_return_book/{{list.1}}" class="btn btn-outline-danger" >Confirm Return</a></td>
+            {% endif %}
+        </tr>
+    </tbody>
+    </table>
+  <i><a href="/UCreateChat" style="color:red;  text-decoration: none;">* Kindly Pay Your Fine First</a></i>
+  </div>
+
+</form>
+</div>
+
+
+{% endblock %}
